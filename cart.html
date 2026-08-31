@@ -98,7 +98,13 @@
     }
 
     // remove a single item
-    //Do it your Self
+    function removeItem(id) {
+      let cart = loadCart();
+      // We filter for items other than the ID to be removed.
+      cart = cart.filter(item => item.id !== id);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      displayCart(); // We are updating the screen immediately.
+    }
 
     // clear entire cart
     function clearCart() {
